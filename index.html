@@ -176,10 +176,9 @@ h1 .dim{color:var(--muted);font-weight:300;font-style:italic;display:block}
 .dual-item-head{display:flex;justify-content:space-between;align-items:center;padding:17px 0;cursor:pointer;user-select:none;-webkit-user-select:none;gap:12px}
 .dual-item-head:hover strong{color:var(--green)}
 .dual-item strong{font-size:15px;color:var(--ink);transition:color .15s;flex:1;line-height:1.35}
-.dual-item-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);font-size:15px;line-height:1;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s,border-color .2s}
+.dual-item-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);font-size:15px;line-height:1;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s,border-color .2s,color .2s}
 .dual-item.open .dual-item-icon{transform:rotate(45deg);background:var(--green);border-color:var(--green);color:#fff}
-.dual-item-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
-.dual-item.open .dual-item-body{max-height:200px}
+.dual-item-body{max-height:0;overflow:hidden;transition:max-height .38s ease}
 .dual-item span{display:block;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;padding-bottom:16px}
 
 /* RESULTS */
@@ -381,11 +380,11 @@ footer{border-top:1px solid var(--border);padding:22px clamp(20px,5vw,48px);disp
         <div class="dual-label red">onde o dinheiro some</div>
         <h2>Toda empresa tem pelo menos uma dessas sangrias.</h2>
         <ul class="dual-list">
-          <li class="dual-item" id="di-vocêcobramenosdo"><div class="dual-item-head" onclick="toggleDual('di-vocêcobramenosdo')"><strong>Você cobra menos do que deveria</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>A margem parece boa até fechar o mês. Aí o dinheiro sumiu e ninguém sabe onde foi.</span></div></li>
-          <li class="dual-item" id="di-vocêpagaporcoisa"><div class="dual-item-head" onclick="toggleDual('di-vocêpagaporcoisa')"><strong>Você paga por coisa que não enxerga</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Retrabalho, hora parada, material sumido. Ninguém chama de prejuízo porque ninguém mede.</span></div></li>
-          <li class="dual-item" id="di-vocêdecidesemsabe"><div class="dual-item-head" onclick="toggleDual('di-vocêdecidesemsabe')"><strong>Você decide sem saber o que tem</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Aceita contrato sem saber se o caixa aguenta. O número certo nunca chega a tempo.</span></div></li>
-          <li class="dual-item" id="di-vocêperdeclientes"><div class="dual-item-head" onclick="toggleDual('di-vocêperdeclientes')"><strong>Você perde cliente sem saber por quê</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>O processo vive no WhatsApp e a aprovação em grupo. O cliente não espera.</span></div></li>
-          <li class="dual-item" id="di-vocêrepeteomesmo"><div class="dual-item-head" onclick="toggleDual('di-vocêrepeteomesmo')"><strong>Você repete o mesmo erro todo mês</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Setembro aperta o caixa todo ano. Você sente, mas não tem dado pra provar — então nada muda.</span></div></li>
+          <li class="dual-item" id="di0"><div class="dual-item-head" onclick="toggleDual('di0')"><strong>Você cobra menos do que deveria</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>A margem parece boa até fechar o mês. Aí o dinheiro sumiu e ninguém sabe onde foi.</span></div></li>
+          <li class="dual-item" id="di1"><div class="dual-item-head" onclick="toggleDual('di1')"><strong>Você paga por coisa que não enxerga</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Retrabalho, hora parada, material sumido. Ninguém chama de prejuízo porque ninguém mede.</span></div></li>
+          <li class="dual-item" id="di2"><div class="dual-item-head" onclick="toggleDual('di2')"><strong>Você decide sem saber o que tem</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Aceita contrato sem saber se o caixa aguenta. O número certo nunca chega a tempo.</span></div></li>
+          <li class="dual-item" id="di3"><div class="dual-item-head" onclick="toggleDual('di3')"><strong>Você perde cliente sem saber por quê</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>O processo vive no WhatsApp e a aprovação em grupo. O cliente não espera.</span></div></li>
+          <li class="dual-item" id="di4"><div class="dual-item-head" onclick="toggleDual('di4')"><strong>Você repete o mesmo erro todo mês</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Setembro aperta o caixa todo ano. Você sente, mas não tem dado pra provar — então nada muda.</span></div></li>
         </ul>
       </div>
       <div class="divider"></div>
@@ -393,11 +392,11 @@ footer{border-top:1px solid var(--border);padding:22px clamp(20px,5vw,48px);disp
         <div class="dual-label green">o que muda com sistema</div>
         <h2>O objetivo não é tecnologia. É parar de perder dinheiro que já é seu.</h2>
         <ul class="dual-list">
-          <li class="dual-item" id="di-margemrealvisível"><div class="dual-item-head" onclick="toggleDual('di-margemrealvisível')"><strong>Margem real visível antes de vender</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Você sabe se aquele pedido vale a pena antes de aceitar.</span></div></li>
-          <li class="dual-item" id="di-custoqueaparecean"><div class="dual-item-head" onclick="toggleDual('di-custoqueaparecean')"><strong>Custo que aparece antes de virar rotina</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>O que era "normal" vira dado — e dado tem solução.</span></div></li>
-          <li class="dual-item" id="di-decisãocomnúmero"><div class="dual-item-head" onclick="toggleDual('di-decisãocomnúmero')"><strong>Decisão com número, não com chute</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Estoque, caixa, margem. O número certo antes do problema acontecer.</span></div></li>
-          <li class="dual-item" id="di-processoquefuncion"><div class="dual-item-head" onclick="toggleDual('di-processoquefuncion')"><strong>Processo que funciona sem depender de memória</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Pedido, aprovação, controle — tudo registrado. Funciona mesmo quando você não está olhando.</span></div></li>
-          <li class="dual-item" id="di-osistemasepagará"><div class="dual-item-head" onclick="toggleDual('di-osistemasepagará')"><strong>O sistema se paga rápido</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Antes de qualquer coisa, identificamos a perda que justifica o investimento. O primeiro objetivo é provar retorno.</span></div></li>
+          <li class="dual-item" id="di5"><div class="dual-item-head" onclick="toggleDual('di5')"><strong>Margem real visível antes de vender</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Você sabe se aquele pedido vale a pena antes de aceitar.</span></div></li>
+          <li class="dual-item" id="di6"><div class="dual-item-head" onclick="toggleDual('di6')"><strong>Custo que aparece antes de virar rotina</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>O que era "normal" vira dado — e dado tem solução.</span></div></li>
+          <li class="dual-item" id="di7"><div class="dual-item-head" onclick="toggleDual('di7')"><strong>Decisão com número, não com chute</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Estoque, caixa, margem. O número certo antes do problema acontecer.</span></div></li>
+          <li class="dual-item" id="di8"><div class="dual-item-head" onclick="toggleDual('di8')"><strong>Processo que funciona sem depender de memória</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Pedido, aprovação, controle — tudo registrado. Funciona mesmo quando você não está olhando.</span></div></li>
+          <li class="dual-item" id="di9"><div class="dual-item-head" onclick="toggleDual('di9')"><strong>O sistema se paga rápido</strong><div class="dual-item-icon">+</div></div><div class="dual-item-body"><span>Antes de qualquer coisa, identificamos a perda que justifica o investimento. O primeiro objetivo é provar retorno.</span></div></li>
         </ul>
       </div>
     </div>
@@ -586,5 +585,30 @@ const io = new IntersectionObserver(entries => {
 },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal,.stagger').forEach(el => io.observe(el));
 </script>
+
+<script>
+function toggleDual(id){
+  var el=document.getElementById(id);
+  var body=el.querySelector('.dual-item-body');
+  var icon=el.querySelector('.dual-item-icon');
+  var isOpen=el.classList.contains('open');
+  if(isOpen){
+    body.style.maxHeight='0';
+    el.classList.remove('open');
+    icon.style.transform='rotate(0deg)';
+    icon.style.background='';
+    icon.style.borderColor='';
+    icon.style.color='';
+  } else {
+    body.style.maxHeight=body.scrollHeight+'px';
+    el.classList.add('open');
+    icon.style.transform='rotate(45deg)';
+    icon.style.background='var(--green)';
+    icon.style.borderColor='var(--green)';
+    icon.style.color='#fff';
+  }
+}
+</script>
+
 </body>
 </html>
