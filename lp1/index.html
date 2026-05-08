@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Você vende bem. Por que não sobra? — Eixo</title>
+<meta name="description" content="Diagnóstico de perdas invisíveis para PMEs que faturam bem mas não veem lucro. Margem, custo real, caixa e processo — em 7 dias.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:title" content="Você vende bem. Por que não sobra?">
+<meta property="og:description" content="Diagnóstico de perdas invisíveis em 7 dias. Conversa de 15 minutos, sem compromisso.">
+<meta property="og:image" content="https://eixo.me/og-image.svg">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --paper:  #F2F5F1;
+  --paper2: #EAF0EA;
+  --surface:#FAFAF8;
+  --card:   #FFFFFF;
+  --ink:    #101513;
+  --ink2:   #3F4642;
+  --muted:  #7A827C;
+  --rule:   rgba(16,21,19,.105);
+  --green:  #064E3B;
+  --green2: #0B6B4B;
+  --glight: rgba(6,78,59,.075);
+  --gbord:  rgba(6,78,59,.22);
+  --terra:  #B42318;
+  --red:    #B42318;
+  --terra2: rgba(180,35,24,.08);
+  --wa:     #25D366;
+  --serif:  'Fraunces',Georgia,serif;
+  --body:   'DM Sans',sans-serif;
+  --mono:   'DM Mono',monospace;
+  --r:      12px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--surface);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ─── NAV ─────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  height:54px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(18px,4vw,48px);
+  background:rgba(250,250,248,.94);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--rule);
+}
+.logo{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:-.03em}
+.logo b{color:var(--green)}
+.nav-wa{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--wa);color:#fff;
+  padding:7px 18px;border-radius:999px;
+  font-size:13px;font-weight:600;
+  transition:opacity .15s,transform .1s;
+}
+.nav-wa:hover{opacity:.88;transform:translateY(-1px)}
+.nav-wa svg{width:14px;height:14px}
+
+/* ─── HERO ─────────────────────────────── */
+.hero{
+  padding-top:54px;
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+.hero-left{
+  padding:clamp(44px,6vw,80px) clamp(20px,4vw,56px);
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--rule);
+}
+.hero-kicker{
+  font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.18em;color:var(--muted);
+  margin-bottom:24px;display:flex;align-items:center;gap:8px;
+  opacity:0;animation:up .5s .05s ease forwards;
+}
+.hero-kicker::before{content:'';width:18px;height:1px;background:var(--green)}
+h1{
+  font-family:var(--serif);
+  font-size:clamp(36px,4.8vw,64px);font-weight:900;
+  letter-spacing:-.045em;line-height:.92;
+  margin-bottom:20px;
+  opacity:0;animation:up .5s .12s ease forwards;
+}
+h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.hero-sub{
+  font-size:clamp(14px,1.4vw,16px);color:var(--ink2);font-weight:300;
+  line-height:1.7;max-width:420px;margin-bottom:28px;
+  opacity:0;animation:up .5s .2s ease forwards;
+}
+.hero-sub strong{font-weight:500;color:var(--ink)}
+
+/* stat row below sub */
+.hero-stats{
+  display:flex;gap:0;margin-bottom:32px;
+  opacity:0;animation:up .5s .27s ease forwards;
+}
+.hstat{padding-right:18px;margin-right:18px;border-right:1px solid var(--rule)}
+.hstat:last-child{border-right:none;padding-right:0;margin-right:0}
+.hstat-n{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);font-weight:900;letter-spacing:-.04em;color:var(--green);line-height:1;margin-bottom:2px}
+.hstat-l{font-size:10px;color:var(--muted);font-weight:300;line-height:1.35}
+
+/* ─── FORM ─────────────────────────────── */
+.hero-form-wrap{
+  opacity:0;animation:up .5s .34s ease forwards;
+}
+.form-card{
+  background:var(--card);border:1px solid rgba(16,21,19,.10);
+  border-radius:14px;padding:22px;
+  box-shadow:0 10px 28px rgba(16,21,19,.065);
+}
+.form-title{
+  font-family:var(--serif);font-size:14px;font-weight:700;
+  letter-spacing:-.02em;color:var(--ink);margin-bottom:3px;
+}
+.form-sub{font-size:12px;color:var(--muted);font-weight:300;margin-bottom:14px;line-height:1.45}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.field label{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.field input,.field select{
+  padding:9px 12px;border:1px solid var(--rule);border-radius:8px;
+  font:14px/1 var(--body);color:var(--ink);background:var(--paper);
+  outline:none;transition:border-color .15s,box-shadow .15s;
+  -webkit-appearance:none;appearance:none;
+}
+.field input:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(11,107,75,.1)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238E8B82' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.btn-submit{
+  width:100%;padding:13px;border-radius:10px;
+  background:var(--wa);color:#fff;border:none;cursor:pointer;
+  font:600 14px/1 var(--body);display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:opacity .15s,transform .12s;
+  box-shadow:0 4px 16px rgba(37,211,102,.25);
+}
+.btn-submit:hover{opacity:.9;transform:translateY(-1px)}
+.btn-submit svg{width:16px;height:16px;flex-shrink:0}
+.form-note{font:300 10px/1.4 var(--mono);color:var(--muted);text-align:center;margin-top:8px;letter-spacing:.03em}
+
+/* ─── HERO RIGHT — executive summary visual ──── */
+.hero-right{
+  background:linear-gradient(145deg,#F7F9F6 0%,#EEF3ED 58%,#E7EFE8 100%);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(28px,4vw,52px) clamp(22px,4vw,44px);
+  opacity:0;animation:fadeIn .8s .3s ease forwards;
+}
+.hero-right::before{
+  content:'';position:absolute;inset:auto -22% -20% auto;
+  width:68%;height:58%;border-radius:999px;
+  background:rgba(6,78,59,.08);filter:blur(12px);
+}
+.hero-right::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,.48),transparent 46%);
+  pointer-events:none;
+}
+.dash-wrap{position:relative;z-index:1;width:100%;max-width:430px}
+.exec-card{
+  background:var(--card);
+  border:1px solid rgba(16,21,19,.12);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 22px 56px rgba(16,21,19,.13);
+}
+.exec-top{
+  padding:22px 22px 18px;
+  border-bottom:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:18px;align-items:flex-start;
+}
+.exec-logo{font-family:var(--serif);font-weight:900;font-size:18px;letter-spacing:-.04em;color:var(--ink)}
+.exec-logo b{color:var(--green)}
+.exec-kicker{font:500 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-top:7px}
+.exec-date{font:500 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);white-space:nowrap;margin-top:3px}
+.exec-main{padding:22px}
+.exec-label{font:600 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
+.exec-loss{display:flex;align-items:flex-end;gap:6px;margin-bottom:4px}
+.exec-loss strong{font-family:var(--serif);font-size:clamp(42px,5.8vw,58px);line-height:.88;letter-spacing:-.06em;color:var(--terra);font-weight:900}
+.exec-loss span{font:500 12px/1 var(--mono);color:var(--muted);padding-bottom:5px}
+.exec-desc{font-size:13px;line-height:1.55;color:var(--ink2);font-weight:300;max-width:310px;margin-bottom:12px}
+.exec-alert{display:inline-flex;align-items:center;gap:7px;background:rgba(180,35,24,.075);border:1px solid rgba(180,35,24,.18);color:var(--red);font:700 10px/1.25 var(--mono);text-transform:uppercase;letter-spacing:.08em;padding:8px 10px;border-radius:999px;margin-bottom:20px}
+.exec-alert::before{content:'';width:6px;height:6px;border-radius:999px;background:var(--red);flex-shrink:0}
+.exec-findings{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.exec-finding{
+  display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;
+  padding:13px 0;border-top:1px solid var(--rule);
+}
+.exec-num{font:700 11px/1 var(--mono);color:var(--green);padding-top:2px;min-width:20px}
+.exec-title{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
+.exec-text{font-size:12px;line-height:1.45;color:var(--muted);font-weight:300}
+.exec-impact{font:700 12px/1.2 var(--mono);color:var(--terra);white-space:nowrap;text-align:right;padding-top:2px}
+.exec-impact.green{color:var(--green)}
+.exec-actions{
+  background:#F2F5F1;
+  border:1px solid var(--rule);
+  border-radius:12px;
+  padding:14px;
+}
+.exec-actions-title{font:700 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+.exec-action-list{display:grid;gap:8px}
+.exec-action{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--ink2);line-height:1.45;font-weight:400}
+.exec-action::before{content:'✓';font-weight:900;color:var(--green);font-size:12px;margin-top:1px}
+.dash-label{font:300 9px/1.4 var(--mono);color:var(--muted);text-align:center;margin-top:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* ─── SYMPTOMS ──────────────────────── */
+.symptoms{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--rule);
+}
+.sym-header{
+  padding:clamp(36px,5vw,60px) clamp(20px,4vw,56px);
+  border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--paper);
+}
+.sym-kicker{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:14px}
+.sym-h{
+  font-family:var(--serif);
+  font-size:clamp(22px,3vw,38px);font-weight:900;
+  letter-spacing:-.04em;line-height:1.0;margin-bottom:14px;
+}
+.sym-h em{font-style:italic;font-weight:300;color:var(--muted)}
+.sym-note{font-size:13px;color:var(--muted);font-weight:300;line-height:1.6;max-width:280px}
+.sym-list{padding:clamp(24px,3vw,40px) clamp(20px,4vw,48px);display:flex;flex-direction:column}
+.sym{padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer}
+.sym:last-child{border-bottom:none}
+.sym-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sym-q{font-size:clamp(13px,1.3vw,14px);font-weight:500;color:var(--ink);line-height:1.4;transition:color .15s}
+.sym:hover .sym-q,.sym.open .sym-q{color:var(--green)}
+.sym-icon{
+  width:20px;height:20px;border-radius:50%;border:1.5px solid var(--rule);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--muted);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s,border-color .2s;
+}
+.sym.open .sym-icon{transform:rotate(45deg);background:var(--green);border-color:var(--green);color:#fff}
+.sym-body{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+.sym-a{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;padding:7px 0 3px}
+.sym-a strong{font-weight:500;color:var(--ink)}
+
+/* mid cta bar */
+.mid-cta{
+  background:var(--green);padding:20px clamp(20px,4vw,48px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.mid-cta-text{font-size:15px;font-weight:500;color:#fff;font-family:var(--body);font-style:normal;letter-spacing:-.01em}
+.mid-cta-text span{font-style:normal;font-weight:700}
+.btn-white{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;color:var(--ink);
+  padding:10px 20px;border-radius:999px;
+  font-size:13px;font-weight:700;white-space:nowrap;
+  transition:opacity .15s;
+}
+.btn-white:hover{opacity:.9}
+.btn-white svg{width:14px;height:14px}
+
+/* ─── DIAGNOSIS OFFER ─────────────────── */
+.diag{
+  padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px);
+  background:#111714;color:#fff;
+}
+.diag-inner{max-width:1080px;margin:0 auto}
+.diag-top{margin-bottom:40px}
+.diag-kicker{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.3);margin-bottom:12px}
+.diag-h{
+  font-family:var(--serif);
+  font-size:clamp(24px,4vw,48px);font-weight:900;
+  letter-spacing:-.045em;line-height:.95;
+}
+.diag-h em{font-style:italic;font-weight:300;color:rgba(255,255,255,.35)}
+.diag-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:start}
+.diag-offer{
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;padding:30px;
+  box-shadow:none;
+}
+.do-badge{
+  font:600 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;
+  color:#D7F5E7;background:rgba(37,211,102,.10);border:1px solid rgba(37,211,102,.22);
+  padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:14px;
+}
+.do-name{font-size:15px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:6px}
+.do-price{
+  font-family:var(--serif);font-size:clamp(36px,5vw,56px);font-weight:900;
+  letter-spacing:-.05em;color:#fff;line-height:1;margin-bottom:3px;
+}
+.do-cadence{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:20px;font-weight:300}
+.do-items{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.do-item{
+  font-size:13px;color:rgba(255,255,255,.6);font-weight:300;
+  display:flex;gap:8px;align-items:flex-start;line-height:1.4;
+}
+.do-item::before{content:'✓';color:#74B69D;font-weight:700;flex-shrink:0}
+.do-note{
+  font:300 11px/1.5 var(--mono);color:rgba(255,255,255,.25);
+  border-top:1px solid rgba(255,255,255,.08);padding-top:14px;
+  letter-spacing:.02em;
+}
+.btn-wa-full{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--wa);color:#fff;padding:14px;border-radius:10px;
+  font:600 14px/1 var(--body);margin-top:16px;
+  box-shadow:0 4px 20px rgba(37,211,102,.25);
+  transition:opacity .15s,transform .12s;
+}
+.btn-wa-full:hover{opacity:.9;transform:translateY(-1px)}
+.btn-wa-full svg{width:17px;height:17px}
+
+/* ─── EXECUTIVE REPORT MOCKUP ──────────────────── */
+.report-wrap{
+  border-radius:16px;overflow:hidden;
+  background:var(--card);
+  border:1px solid rgba(16,21,19,.12);
+  box-shadow:0 22px 56px rgba(0,0,0,.20);
+}
+.report-head{
+  padding:22px 24px;
+  display:flex;justify-content:space-between;gap:20px;align-items:flex-start;
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,#FFFFFF,#F4F7F3);
+}
+.report-brand{font-family:var(--serif);font-size:15px;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
+.report-brand b{color:var(--green)}
+.report-title{font-family:var(--serif);font-size:22px;font-weight:900;letter-spacing:-.045em;color:var(--ink);line-height:1;margin-top:10px}
+.report-sub{font-size:12px;color:var(--muted);font-weight:300;margin-top:6px;line-height:1.45}
+.report-total{text-align:right;min-width:145px}
+.report-total-label{font:600 8px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:7px}
+.report-total-value{font-family:var(--serif);font-size:32px;font-weight:900;letter-spacing:-.055em;color:var(--terra);line-height:.9}
+.report-total-value span{font-size:11px;font-weight:400;letter-spacing:0;color:var(--muted);margin-left:2px}
+.report-body{padding:22px 24px 24px;background:var(--surface)}
+.report-section-title{font:700 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:12px}
+.report-findings{display:flex;flex-direction:column;border-top:1px solid var(--rule);margin-bottom:20px}
+.rf{
+  display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:start;
+  padding:15px 0;border-bottom:1px solid var(--rule);
+}
+.rf-num{font:700 11px/1 var(--mono);color:var(--green);padding-top:2px}
+.rf-cat{font:700 9px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.rf-label{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
+.rf-note{font-size:12px;color:var(--muted);font-weight:300;line-height:1.5}
+.rf-val{font:700 13px/1.25 var(--mono);white-space:nowrap;text-align:right;color:var(--terra);padding-top:2px}
+.rf-val.green{color:var(--green)}
+.report-plan{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+}
+.rp{background:#F3F6F2;padding:14px}
+.rp-step{font:700 10px/1 var(--mono);color:var(--green);margin-bottom:8px}
+.rp-title{font-size:12px;color:var(--ink);font-weight:700;margin-bottom:4px;line-height:1.25}
+.rp-desc{font-size:11px;color:var(--muted);font-weight:300;line-height:1.45}
+.report-footer{
+  padding-top:14px;margin-top:16px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+  font:300 8px/1.4 var(--mono);color:var(--muted);letter-spacing:.05em;text-transform:uppercase;
+}
+.report-caption{font:300 10px/1.5 var(--mono);color:rgba(255,255,255,.38);text-align:center;margin-top:12px;letter-spacing:.04em}
+
+/* ─── FAQ ───────────────────────────── */
+.faq{padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px);border-top:1px solid var(--rule)}
+.faq-inner{max-width:720px;margin:0 auto}
+.faq-kicker{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:10px}
+.faq-h{font-family:var(--serif);font-size:clamp(22px,3.5vw,38px);font-weight:900;letter-spacing:-.04em;margin-bottom:28px}
+.faq-list{display:flex;flex-direction:column}
+.fi{border-top:1px solid var(--rule)}
+.fi:last-child{border-bottom:1px solid var(--rule)}
+.fi-q{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:16px 0;cursor:pointer;font-size:14px;font-weight:500;
+  transition:color .15s;user-select:none;
+}
+.fi-q:hover{color:var(--green)}
+.fi-icon{
+  width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rule);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--muted);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s,border-color .2s;
+}
+.fi.open .fi-icon{transform:rotate(45deg);background:var(--green);border-color:var(--green);color:#fff}
+.fi-a{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+.fi-a-inner{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;padding-bottom:16px}
+.fi-a-inner strong{font-weight:500;color:var(--ink)}
+
+/* ─── FINAL CTA ─────────────────────── */
+.final{
+  background:var(--ink);color:#fff;
+  padding:clamp(60px,7vw,96px) clamp(20px,4vw,56px);
+  position:relative;overflow:hidden;
+}
+.final-mesh{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 15% 50%,rgba(11,107,75,.14),transparent 60%);
+  pointer-events:none;
+}
+.final-inner{
+  position:relative;z-index:1;
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+}
+.final-kicker{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.25);margin-bottom:12px}
+.final-h{
+  font-family:var(--serif);
+  font-size:clamp(28px,4.5vw,56px);font-weight:900;
+  letter-spacing:-.05em;line-height:.92;margin-bottom:12px;
+}
+.final-h em{font-style:italic;font-weight:300;color:rgba(255,255,255,.3)}
+.final-sub{font-size:14px;color:rgba(255,255,255,.45);font-weight:300;line-height:1.65;max-width:360px}
+.final-sub strong{color:rgba(255,255,255,.75);font-weight:500}
+.final-right{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.btn-wa-lg{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--wa);color:#fff;
+  padding:15px 26px;border-radius:999px;
+  font-size:14px;font-weight:700;white-space:nowrap;
+  box-shadow:0 4px 20px rgba(37,211,102,.3);
+  transition:transform .12s,box-shadow .15s;
+}
+.btn-wa-lg:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+.btn-wa-lg svg{width:18px;height:18px}
+.final-note{font:300 11px/1 var(--mono);color:rgba(255,255,255,.2);text-align:right;letter-spacing:.04em}
+
+footer{
+  background:var(--ink);border-top:1px solid rgba(255,255,255,.06);
+  padding:16px clamp(20px,4vw,48px);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+}
+.footer-logo{font-family:var(--serif);font-size:14px;font-weight:700;letter-spacing:-.03em;color:rgba(255,255,255,.4)}
+.footer-logo b{color:rgba(11,107,75,.8)}
+.footer-txt{font:300 10px/1 var(--mono);color:rgba(255,255,255,.18);letter-spacing:.06em}
+
+/* ─── MOBILE BAR ─────────────────────── */
+.mob-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:rgba(250,250,248,.97);backdrop-filter:blur(16px);
+  border-top:1px solid var(--rule);padding:10px 16px 14px;
+}
+.mob-bar-inner{display:flex;align-items:center;gap:10px}
+.mob-bar-text{flex:1}
+.mob-bar-l{font-size:11px;color:var(--muted);font-weight:300;margin-bottom:1px}
+.mob-bar-v{font-size:13px;font-weight:600;color:var(--ink)}
+.mob-bar-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--wa);color:#fff;
+  padding:10px 16px;border-radius:999px;
+  font-size:13px;font-weight:600;white-space:nowrap;
+}
+.mob-bar-btn svg{width:14px;height:14px}
+
+/* ─── ANIMATIONS ─────────────────────── */
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.stagger.on>*:nth-child(1){opacity:1;transform:none;transition-delay:.04s}
+.stagger.on>*:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
+.stagger.on>*:nth-child(3){opacity:1;transform:none;transition-delay:.16s}
+.stagger.on>*:nth-child(4){opacity:1;transform:none;transition-delay:.22s}
+.stagger.on>*:nth-child(5){opacity:1;transform:none;transition-delay:.28s}
+
+/* ─── RESPONSIVE ─────────────────────── */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{
+    display:flex;min-height:auto;padding:24px 20px;
+    border-top:1px solid var(--rule);
+  }
+  .dash-wrap{max-width:100%}
+  .dash-wrap{max-width:560px}
+  .symptoms{grid-template-columns:1fr}
+  .sym-header{border-right:none;border-bottom:1px solid var(--rule)}
+  .diag-layout{grid-template-columns:1fr}
+  .final-inner{grid-template-columns:1fr}
+  .final-right{align-items:flex-start}
+  .final-note{text-align:left}
+  .mob-bar{display:block}
+  body{padding-bottom:70px}
+}
+@media(max-width:640px){
+  .exec-top{padding:18px}
+  .exec-main{padding:18px}
+  .exec-finding{grid-template-columns:auto 1fr}
+  .exec-impact{grid-column:2;text-align:left}
+  .report-head{flex-direction:column}
+  .report-total{text-align:left}
+  .report-plan{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:12px}
+  .hstat{border-right:none;margin-right:0;padding-right:0}
+  .mid-cta{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://eixo.me" class="logo">eixo<b>.</b></a>
+  <a class="nav-wa" href="https://wa.me/5564932773958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20conversar." target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Falar agora
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- LEFT: headline + form -->
+  <div class="hero-left">
+    <div class="hero-kicker">eixo · diagnóstico de perdas para PMEs</div>
+    <h1>Você vende bem.<br><em>Por que<br>não sobra?</em></h1>
+    <p class="hero-sub">Não é azar, não é mercado. <strong>É que toda PME tem furos invisíveis — preço errado, custo desconhecido, caixa sem projeção — que só aparecem quando você cruza os números certos.</strong></p>
+
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">+9%</div><div class="hstat-l">margem recuperada<br>em 30 dias</div></div>
+      <div class="hstat"><div class="hstat-n">R$18k</div><div class="hstat-l">/mês economizados<br>em 1 empresa</div></div>
+      <div class="hstat"><div class="hstat-n">7 dias</div><div class="hstat-l">do contato ao<br>painel no ar</div></div>
+    </div>
+
+    <!-- FORM -->
+    <div class="hero-form-wrap">
+      <div class="form-card">
+        <div class="form-title">Diagnóstico inicial de perdas</div>
+        <div class="form-sub">Preencha abaixo — a gente monta a análise e te responde pelo WhatsApp em até 2h.</div>
+        <div class="field">
+          <label>WhatsApp</label>
+          <input type="tel" id="f-wa" placeholder="(00) 00000-0000">
+        </div>
+        <div class="field">
+          <label>Faturamento mensal aproximado</label>
+          <select id="f-fat">
+            <option value="">Selecione</option>
+            <option value="até R$50k">Até R$50 mil</option>
+            <option value="R$50k a R$150k">R$50 mil a R$150 mil</option>
+            <option value="R$150k a R$500k">R$150 mil a R$500 mil</option>
+            <option value="acima de R$500k">Acima de R$500 mil</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Principal problema</label>
+          <select id="f-dor">
+            <option value="">Selecione</option>
+            <option value="vendo bem mas não sobra">Vendo bem, mas não sobra</option>
+            <option value="não sei minha margem real">Não sei minha margem real</option>
+            <option value="caixa imprevisível">Caixa aperta sempre na mesma época</option>
+            <option value="custo real desconhecido">Não sei o custo real da operação</option>
+            <option value="processo depende de mim">Se eu saio, algo trava</option>
+          </select>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+          Receber diagnóstico pelo WhatsApp
+        </button>
+        <p class="form-note">ou <a href="https://wa.me/5564932773958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20conversar." target="_blank" style="color:var(--green);border-bottom:1px solid var(--gbord)">clique aqui para chamar direto</a> — sem preencher nada</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: executive summary -->
+  <div class="hero-right">
+    <div class="dash-wrap">
+      <div class="exec-card">
+        <div class="exec-top">
+          <div>
+            <div class="exec-logo">eixo<b>.</b></div>
+            <div class="exec-kicker">raio-x financeiro</div>
+          </div>
+          <div class="exec-date">Abril 2026</div>
+        </div>
+        <div class="exec-main">
+          <div class="exec-label">Perda financeira estimada</div>
+          <div class="exec-loss"><strong>R$12.840</strong><span>/mês</span></div>
+          <p class="exec-desc">Visão direta dos pontos que mais drenam lucro quando preço, custo, caixa e processo são cruzados.</p>
+          <div class="exec-alert">Prioridade: corrigir primeiro o que gera perda mensal comprovável.</div>
+
+          <div class="exec-findings">
+            <div class="exec-finding">
+              <div class="exec-num">01</div>
+              <div>
+                <div class="exec-title">Precificação abaixo do custo real</div>
+                <div class="exec-text">3 serviços vendidos com margem aparente, mas negativos após custo completo.</div>
+              </div>
+              <div class="exec-impact">−R$8.400</div>
+            </div>
+            <div class="exec-finding">
+              <div class="exec-num">02</div>
+              <div>
+                <div class="exec-title">Caixa com ponto de aperto previsto</div>
+                <div class="exec-text">Projeção mostra risco de liquidez antes do fechamento do ciclo.</div>
+              </div>
+              <div class="exec-impact">17 dias</div>
+            </div>
+            <div class="exec-finding">
+              <div class="exec-num">03</div>
+              <div>
+                <div class="exec-title">Serviços lucrativos pouco explorados</div>
+                <div class="exec-text">Duas frentes com margem alta e baixo esforço comercial.</div>
+              </div>
+              <div class="exec-impact green">+R$6.200</div>
+            </div>
+          </div>
+
+          <div class="exec-actions">
+            <div class="exec-actions-title">Prioridade dos próximos 30 dias</div>
+            <div class="exec-action-list">
+              <div class="exec-action">corrigir preço dos serviços com margem negativa</div>
+              <div class="exec-action">antecipar caixa antes do mês de aperto</div>
+              <div class="exec-action">vender mais o que realmente deixa lucro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-label">EXEMPLO — resumo gerado no diagnóstico</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- SYMPTOMS -->
+<section class="symptoms">
+  <div class="sym-header reveal">
+    <div class="sym-kicker">você se reconhece?</div>
+    <h2 class="sym-h">As dores que<br>todo dono sente<br><em>mas não<br>consegue<br>explicar.</em></h2>
+    <p class="sym-note">90% das PMEs brasileiras operam com improviso financeiro. Não é incompetência — é falta de visibilidade sobre os números certos.</p>
+  </div>
+  <div class="sym-list">
+    <div class="sym open" id="s1" onclick="sym('s1')">
+      <div class="sym-head"><div class="sym-q">Você vende bem, mas no fim do mês não sobra o que deveria.</div><div class="sym-icon">+</div></div>
+      <div class="sym-body"><p class="sym-a">O problema mais comum e mais silencioso. <strong>Na maioria dos casos o preço está errado — não porque cobrou pouco, mas porque nunca calculou o custo real de cada venda.</strong> Inclui só o custo direto, esquece aluguel, energia, impostos e hora da equipe.</p></div>
+    </div>
+    <div class="sym" id="s2" onclick="sym('s2')">
+      <div class="sym-head"><div class="sym-q">Você precifica olhando o concorrente ou no feeling.</div><div class="sym-icon">+</div></div>
+      <div class="sym-body"><p class="sym-a">Copiar preço do concorrente é copiar o problema dele. <strong>Cada empresa tem estrutura de custo diferente — cobrar sem calcular o seu significa que parte das vendas pode dar prejuízo sem você saber.</strong> "Vendo muito, mas não entendo por que não sobra" é o sintoma clássico.</p></div>
+    </div>
+    <div class="sym" id="s3" onclick="sym('s3')">
+      <div class="sym-head"><div class="sym-q">No mês de aperto, o caixa aperta. Todo ano.</div><div class="sym-icon">+</div></div>
+      <div class="sym-body"><p class="sym-a">Você sabe que vai apertar, mas só descobre a gravidade quando já chegou. <strong>Sem caixa projetado, você chega ao banco em posição de fraqueza.</strong> Com projeção de 90 dias, você negocia no seu tempo, antes do problema.</p></div>
+    </div>
+    <div class="sym" id="s4" onclick="sym('s4')">
+      <div class="sym-head"><div class="sym-q">Você mistura conta pessoal com conta da empresa.</div><div class="sym-icon">+</div></div>
+      <div class="sym-body"><p class="sym-a">Quando você retira da empresa sem saber o resultado do mês, está pescando no escuro. <strong>Às vezes sobra. Às vezes você descapitaliza a empresa sem perceber.</strong> Separa as contas, mas sem base no resultado real — é a mesma coisa.</p></div>
+    </div>
+    <div class="sym" id="s5" onclick="sym('s5')">
+      <div class="sym-head"><div class="sym-q">Se você sair por uma semana, algo trava ou erra.</div><div class="sym-icon">+</div></div>
+      <div class="sym-body"><p class="sym-a">O processo vive na sua cabeça, não num sistema. <strong>Isso impede crescimento e cria uma dependência total que você mesmo sente como prisão.</strong> Não é falta de confiança na equipe — é falta de processo registrado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<div class="mid-cta">
+  <div class="mid-cta-text"><span>Me identifiquei.</span> Quero entender o que está acontecendo na minha empresa.</div>
+  <a class="btn-white" href="https://wa.me/5564932773958?text=Olá!%20Me%20identifiquei%20com%20os%20sintomas%20do%20site%20e%20quero%20uma%20análise%20da%20minha%20empresa." target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Quero uma análise
+  </a>
+</div>
+
+<!-- DIAGNOSIS OFFER + SLIDE MOCKUP -->
+<section class="diag">
+  <div class="diag-inner">
+    <div class="diag-top reveal">
+      <div class="diag-kicker">o que você compra</div>
+      <h2 class="diag-h">Diagnóstico Inicial de Perdas.<br><em>Não é consultoria de slide.</em></h2>
+    </div>
+    <div class="diag-layout reveal">
+
+      <!-- offer card -->
+      <div class="diag-offer">
+        <div class="do-badge">Primeiro passo · pagamento único</div>
+        <div class="do-name">Diagnóstico de Perdas Invisíveis</div>
+        <div class="do-price">R$1.490</div>
+        <div class="do-cadence">pagamento único · entrega em 7 dias</div>
+        <ul class="do-items">
+          <li>Mapa dos furos: onde o dinheiro some com estimativa em R$</li>
+          <li>Painel inicial com seus dados reais funcionando</li>
+          <li>Margem real por produto ou serviço</li>
+          <li>Caixa projetado e alertas críticos</li>
+          <li>Plano de ação priorizado por impacto</li>
+          <li>Reunião de leitura — você entende cada número</li>
+        </ul>
+        <div class="do-note">Se fizer sentido continuar, você pode assinar o acompanhamento mensal a partir de R$1.990/mês. Sem obrigação de prosseguir.</div>
+        <a class="btn-wa-full" href="https://wa.me/5564932773958?text=Olá!%20Quero%20contratar%20o%20Diagnóstico%20Inicial%20de%20Perdas%20da%20Eixo." target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+          Quero contratar o diagnóstico
+        </a>
+      </div>
+
+      <!-- executive report mockup -->
+      <div>
+        <div class="report-wrap">
+          <div class="report-head">
+            <div>
+              <div class="report-brand">eixo<b>.</b></div>
+              <div class="report-title">Raio-X Financeiro do Diagnóstico</div>
+              <div class="report-sub">Empresa de Serviços · 18 funcionários · Goiás · Abril 2026</div>
+            </div>
+            <div class="report-total">
+              <div class="report-total-label">perda estimada</div>
+              <div class="report-total-value">R$12.840<span>/mês</span></div>
+            </div>
+          </div>
+
+          <div class="report-body">
+            <div class="report-section-title">achados principais</div>
+            <div class="report-findings">
+              <div class="rf">
+                <div class="rf-num">01</div>
+                <div>
+                  <div class="rf-cat">precificação</div>
+                  <div class="rf-label">3 serviços vendidos abaixo do custo real</div>
+                  <div class="rf-note">O preço cobria o custo direto, mas não absorvia equipe, energia, impostos e retrabalho.</div>
+                </div>
+                <div class="rf-val">−R$8.400/mês</div>
+              </div>
+              <div class="rf">
+                <div class="rf-num">02</div>
+                <div>
+                  <div class="rf-cat">caixa</div>
+                  <div class="rf-label">Ponto de aperto previsto em 17 dias úteis</div>
+                  <div class="rf-note">Sem projeção, a empresa só percebe o problema quando já precisa negociar sob pressão.</div>
+                </div>
+                <div class="rf-val">17 dias</div>
+              </div>
+              <div class="rf">
+                <div class="rf-num">03</div>
+                <div>
+                  <div class="rf-cat">oportunidade</div>
+                  <div class="rf-label">2 serviços com margem alta e baixa frequência comercial</div>
+                  <div class="rf-note">Existe lucro onde a empresa vende pouco — a prioridade é mudar o mix, não apenas vender mais.</div>
+                </div>
+                <div class="rf-val green">+R$6.200/mês</div>
+              </div>
+            </div>
+
+            <div class="report-section-title">plano dos próximos 30 dias</div>
+            <div class="report-plan">
+              <div class="rp">
+                <div class="rp-step">01</div>
+                <div class="rp-title">Reprecificar o que dá prejuízo</div>
+                <div class="rp-desc">corrigir tabela e condições comerciais com base no custo real.</div>
+              </div>
+              <div class="rp">
+                <div class="rp-step">02</div>
+                <div class="rp-title">Antecipar o caixa crítico</div>
+                <div class="rp-desc">prever necessidade e negociar antes do aperto chegar.</div>
+              </div>
+              <div class="rp">
+                <div class="rp-step">03</div>
+                <div class="rp-title">Priorizar margem alta</div>
+                <div class="rp-desc">direcionar esforço comercial para serviços que deixam lucro.</div>
+              </div>
+            </div>
+
+            <div class="report-footer">
+              <div>confidencial · uso exclusivo do cliente</div>
+              <div>eixo.me · diagnóstico de perdas</div>
+            </div>
+          </div>
+        </div>
+        <p class="report-caption">Exemplo de raio-x financeiro entregue ao final do diagnóstico.<br>Dados e valores adaptados à realidade de cada empresa.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner reveal">
+    <div class="faq-kicker">antes de decidir</div>
+    <h2 class="faq-h">Perguntas que todo mundo faz.</h2>
+    <div class="faq-list">
+      <div class="fi open" id="f1">
+        <div class="fi-q" onclick="fi('f1')">Já tentei sistema antes e não funcionou.<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">Sistema falha quando é genérico — você adapta o processo ao software em vez do contrário. <strong>Aqui começamos pelo diagnóstico do seu problema real</strong>, depois construímos só o que resolve aquele ponto. Não tem como pagar algo que não prova retorno antes de existir.</div></div>
+      </div>
+      <div class="fi" id="f2">
+        <div class="fi-q" onclick="fi('f2')">Não tenho tempo pra implementar mais uma coisa.<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">A implementação é por nossa conta. Você não monta nada, não treina ninguém de TI, não para a operação. <strong>O sistema entra no ar em 7 dias e a equipe aprende usando</strong> — não antes. O que toma seu tempo hoje é o controle manual que o sistema vai eliminar.</div></div>
+      </div>
+      <div class="fi" id="f3">
+        <div class="fi-q" onclick="fi('f3')">Minha empresa fatura pouco. Vale a pena?<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">O critério não é faturamento — é dor real. <strong>Se existe uma perda que custa mais do que o investimento, faz sentido.</strong> Se na conversa inicial ficar claro que não compensa, a gente fala antes de qualquer proposta.</div></div>
+      </div>
+      <div class="fi" id="f4">
+        <div class="fi-q" onclick="fi('f4')">Isso substitui meu contador?<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">Não substitui — e não é o objetivo. O contador cuida das obrigações fiscais. <strong>A Eixo organiza a gestão entre o operacional e a decisão do dono</strong> — o que o contador não faz e o ERP genérico não mostra de forma simples.</div></div>
+      </div>
+      <div class="fi" id="f5">
+        <div class="fi-q" onclick="fi('f5')">Posso pagar só o diagnóstico e não continuar?<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner"><strong>Sim.</strong> O diagnóstico é um produto independente. Você recebe o mapa de perdas, o painel e o plano de ação — e decide se quer seguir com acompanhamento mensal. Sem obrigação de prosseguir.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-mesh"></div>
+  <div class="final-inner reveal">
+    <div>
+      <div class="final-kicker">próximo passo</div>
+      <div class="final-h">Você já está<br>perdendo dinheiro.<br><em>A questão é quanto.</em></div>
+      <p class="final-sub" style="margin-top:14px">
+        Conversa de 15 minutos. Você conta como o negócio funciona. A gente identifica onde está o maior furo. <strong>Sem proposta antes de ouvir. Sem compromisso.</strong>
+      </p>
+    </div>
+    <div class="final-right">
+      <a class="btn-wa-lg" href="https://wa.me/5564932773958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20entender%20onde%20minha%20empresa%20está%20perdendo%20dinheiro." target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+        Descobrir minhas perdas
+      </a>
+      <span class="final-note">sem compromisso · resposta em até 2h</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="https://eixo.me" class="footer-logo">eixo<b>.</b></a>
+  <span class="footer-txt">Vipaq Gestão e Serviços Ltda · eixo.me</span>
+</footer>
+
+<!-- MOBILE BAR -->
+<div class="mob-bar">
+  <div class="mob-bar-inner">
+    <div class="mob-bar-text">
+      <div class="mob-bar-l">diagnóstico inicial · R$1.490</div>
+      <div class="mob-bar-v">Descobrir minhas perdas</div>
+    </div>
+    <a class="mob-bar-btn" href="https://wa.me/5564932773958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20o%20diagnóstico%20de%20perdas." target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+      Falar agora
+    </a>
+  </div>
+</div>
+
+<script>
+// form → WA
+function submitForm() {
+  const wa  = document.getElementById('f-wa').value.trim()
+  const fat = document.getElementById('f-fat').value
+  const dor = document.getElementById('f-dor').value
+  if (!wa) { document.getElementById('f-wa').focus(); return }
+  const msg = encodeURIComponent(
+    `Olá! Quero o diagnóstico inicial de perdas.\n\nWhatsApp: ${wa}\nFaturamento: ${fat||'não informado'}\nPrincipal problema: ${dor||'não informado'}\n\nAguardo o contato.`
+  )
+  window.open(`https://wa.me/5564932773958?text=${msg}`, '_blank')
+}
+document.addEventListener('keydown', e => { if (e.key === 'Enter') submitForm() })
+
+// symptom accordion
+function sym(id) {
+  const el = document.getElementById(id)
+  const open = el.classList.contains('open')
+  document.querySelectorAll('.sym').forEach(s => { s.classList.remove('open'); s.querySelector('.sym-body').style.maxHeight = '0' })
+  if (!open) { el.classList.add('open'); const b = el.querySelector('.sym-body'); b.style.maxHeight = b.scrollHeight + 'px' }
+}
+// init first open
+;(()=>{ const s=document.getElementById('s1'); if(s){s.classList.add('open');const b=s.querySelector('.sym-body');b.style.maxHeight=b.scrollHeight+'px'} })()
+
+// faq accordion
+function fi(id) {
+  const el = document.getElementById(id)
+  const open = el.classList.contains('open')
+  document.querySelectorAll('.fi').forEach(f => { f.classList.remove('open'); f.querySelector('.fi-a').style.maxHeight = '0' })
+  if (!open) { el.classList.add('open'); const a = el.querySelector('.fi-a'); a.style.maxHeight = a.scrollHeight + 'px' }
+}
+;(()=>{ const f=document.getElementById('f1'); if(f){f.classList.add('open');const a=f.querySelector('.fi-a');a.style.maxHeight=a.scrollHeight+'px'} })()
+
+// scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)} })
+}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' })
+document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el))
+</script>
+</body>
+</html>
