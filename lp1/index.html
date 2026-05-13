@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Você vende bem. Por que não sobra? — Eixo</title>
-<meta name="description" content="Diagnóstico de perdas invisíveis para PMEs que faturam bem mas não veem lucro. Margem, custo real, caixa e processo — em 7 dias.">
+<title>Você vende bem. Por que não sobra? — Análise inicial Eixo</title>
+<meta name="description" content="Análise inicial para PMEs que vendem bem, mas não veem lucro. Descubra se o dinheiro escapa por preço, margem, caixa ou processo.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:title" content="Você vende bem. Por que não sobra?">
-<meta property="og:description" content="Diagnóstico de perdas invisíveis em 7 dias. Conversa de 15 minutos, sem compromisso.">
+<meta property="og:description" content="Responda 5 perguntas e receba uma análise inicial pelo WhatsApp. Sem proposta automática.">
 <meta property="og:image" content="https://eixo.me/og-image.svg">
 <meta name="theme-color" content="#FAFAF8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -605,7 +605,7 @@ footer{
   <div class="hero-left">
     <div class="hero-kicker">eixo · diagnóstico de perdas para PMEs</div>
     <h1>Você vende bem.<br><em>Por que<br>não sobra?</em></h1>
-    <p class="hero-sub">Não é azar, não é mercado. <strong>É que toda PME tem furos invisíveis — preço errado, custo desconhecido, caixa sem projeção — que só aparecem quando você cruza os números certos.</strong></p>
+    <p class="hero-sub">Responda 5 perguntas e descubra se sua empresa pode estar perdendo dinheiro por <strong>preço errado, margem desconhecida, caixa sem previsão ou processo travado.</strong></p>
 
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-n">+9%</div><div class="hstat-l">margem recuperada<br>em 30 dias</div></div>
@@ -616,15 +616,15 @@ footer{
     <!-- FORM -->
     <div class="hero-form-wrap">
       <div class="form-card">
-        <div class="form-title">Diagnóstico inicial de perdas</div>
-        <div class="form-sub">Preencha abaixo — a gente monta a análise e te responde pelo WhatsApp em até 2h.</div>
+        <div class="form-title">Teste rápido de perdas invisíveis</div>
+        <div class="form-sub">A Eixo monta uma leitura inicial e responde pelo WhatsApp. Se não houver sinal claro de perda relevante, falamos isso também.</div>
         <div class="field">
           <label>Nome / empresa</label>
           <input type="text" id="f-nome" placeholder="Ex.: Marcelo · Loja Centro">
         </div>
         <div class="field">
           <label>WhatsApp</label>
-          <input type="tel" id="f-wa" placeholder="(00) 00000-0000">
+          <input type="tel" id="f-wa" placeholder="(00) 00000-0000" maxlength="15" inputmode="numeric" autocomplete="tel">
         </div>
         <div class="field">
           <label>Faturamento mensal aproximado</label>
@@ -647,11 +647,21 @@ footer{
             <option value="processo depende de mim">Se eu saio, algo trava</option>
           </select>
         </div>
+        <div class="field">
+          <label>Você sabe sua margem real?</label>
+          <select id="f-margem">
+            <option value="">Selecione</option>
+            <option value="sei com segurança">Sei com segurança</option>
+            <option value="tenho uma noção">Tenho uma noção</option>
+            <option value="não sei">Não sei</option>
+            <option value="acho que alguns itens dão prejuízo">Acho que alguns produtos/serviços dão prejuízo</option>
+          </select>
+        </div>
         <button class="btn-submit" data-event="submit_hero_form" onclick="submitForm()">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Receber diagnóstico pelo WhatsApp
+          Receber análise inicial no WhatsApp
         </button>
-        <p class="form-note">ou <a href="https://wa.me/5564993273958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20conversar." target="_blank" style="color:var(--green);border-bottom:1px solid var(--gbord)">clique aqui para chamar direto</a> — sem preencher nada</p>
+        <p class="form-note">Sem proposta automática. Primeiro avaliamos se existe sinal claro de perda relevante.</p>
       </div>
     </div>
   </div>
@@ -777,10 +787,10 @@ footer{
 
 <!-- MID CTA -->
 <div class="mid-cta">
-  <div class="mid-cta-text"><span>Me identifiquei.</span> Quero entender o que está acontecendo na minha empresa.</div>
+  <div class="mid-cta-text"><span>Me identifiquei.</span> Quero descobrir se existe perda relevante na minha empresa.</div>
   <a class="btn-white" data-event="click_mid_cta" href="https://wa.me/5564993273958?text=Olá!%20Me%20identifiquei%20com%20os%20sintomas%20do%20site%20e%20quero%20uma%20análise%20da%20minha%20empresa." target="_blank">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-    Quero uma análise
+    Receber análise inicial
   </a>
 </div>
 
@@ -983,10 +993,10 @@ footer{
 <div class="mob-bar">
   <div class="mob-bar-inner">
     <div class="mob-bar-text">
-      <div class="mob-bar-l">diagnóstico inicial · R$1.490</div>
+      <div class="mob-bar-l">análise inicial pelo WhatsApp</div>
       <div class="mob-bar-v">Descobrir minhas perdas</div>
     </div>
-    <a class="mob-bar-btn" data-event="click_mobile_bar" href="https://wa.me/5564993273958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20o%20diagnóstico%20de%20perdas." target="_blank">
+    <a class="mob-bar-btn" data-event="click_mobile_bar" href="https://wa.me/5564993273958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20uma%20análise%20inicial%20das%20perdas." target="_blank">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
       Falar agora
     </a>
