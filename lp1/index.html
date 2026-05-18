@@ -15,7 +15,7 @@
 <meta name="description" content="Análise inicial para PMEs que vendem bem, mas não veem lucro. Descubra se o dinheiro escapa por preço, margem, caixa ou processo.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:title" content="Você vende bem. Por que não sobra?">
-<meta property="og:description" content="Responda 5 perguntas e receba uma análise inicial pelo WhatsApp. Sem proposta automática.">
+<meta property="og:description" content="Manda seu WhatsApp e receba uma análise inicial. Sem proposta automática.">
 <meta property="og:image" content="https://eixo.me/og-image.svg">
 <meta name="theme-color" content="#FAFAF8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,29 +123,42 @@ h1 em{font-style:italic;font-weight:300;color:var(--muted)}
   box-shadow:0 10px 28px rgba(16,21,19,.065);
 }
 .form-title{
-  font-family:var(--serif);font-size:14px;font-weight:700;
+  font-family:var(--serif);font-size:15px;font-weight:700;
   letter-spacing:-.02em;color:var(--ink);margin-bottom:3px;
 }
-.form-sub{font-size:12px;color:var(--muted);font-weight:300;margin-bottom:14px;line-height:1.45}
-.field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.form-sub{font-size:12px;color:var(--muted);font-weight:300;margin-bottom:18px;line-height:1.45}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
 .field label{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.field input,.field select{
-  padding:9px 12px;border:1px solid var(--rule);border-radius:8px;
-  font:14px/1 var(--body);color:var(--ink);background:var(--paper);
+.field input{
+  padding:11px 14px;border:1px solid var(--rule);border-radius:8px;
+  font:15px/1 var(--body);color:var(--ink);background:var(--paper);
   outline:none;transition:border-color .15s,box-shadow .15s;
-  -webkit-appearance:none;appearance:none;
 }
-.field input:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(11,107,75,.1)}
-.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238E8B82' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(11,107,75,.1)}
 .btn-submit{
-  width:100%;padding:13px;border-radius:10px;
+  width:100%;padding:14px;border-radius:10px;
   background:var(--wa);color:#fff;border:none;cursor:pointer;
-  font:600 14px/1 var(--body);display:flex;align-items:center;justify-content:center;gap:8px;
+  font:700 15px/1 var(--body);display:flex;align-items:center;justify-content:center;gap:8px;
   transition:opacity .15s,transform .12s;
-  box-shadow:0 4px 16px rgba(37,211,102,.25);
+  box-shadow:0 4px 16px rgba(37,211,102,.28);
+  margin-top:4px;
 }
 .btn-submit:hover{opacity:.9;transform:translateY(-1px)}
-.btn-submit svg{width:16px;height:16px;flex-shrink:0}
+.btn-submit svg{width:17px;height:17px;flex-shrink:0}
+
+/* garantia inline */
+.form-garantia{
+  display:flex;align-items:flex-start;gap:9px;
+  background:rgba(6,78,59,.06);
+  border:1px solid rgba(6,78,59,.16);
+  border-radius:10px;
+  padding:11px 13px;
+  margin-top:12px;
+}
+.form-garantia-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.form-garantia-text{font:300 11px/1.5 var(--mono);color:var(--green2);letter-spacing:.01em}
+.form-garantia-text strong{font-weight:600}
+
 .form-note{font:300 10px/1.4 var(--mono);color:var(--muted);text-align:center;margin-top:8px;letter-spacing:.03em}
 
 /* ─── HERO RIGHT — executive summary visual ──── */
@@ -266,107 +279,54 @@ h1 em{font-style:italic;font-weight:300;color:var(--muted)}
 .btn-white:hover{opacity:.9}
 .btn-white svg{width:14px;height:14px}
 
-/* ─── DIAGNOSIS OFFER ─────────────────── */
-.diag{
+/* ─── COMO FUNCIONA ─────────────────── */
+.como{
   padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px);
   background:#111714;color:#fff;
 }
-.diag-inner{max-width:1080px;margin:0 auto}
-.diag-top{margin-bottom:40px}
-.diag-kicker{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.3);margin-bottom:12px}
-.diag-h{
+.como-inner{max-width:1080px;margin:0 auto}
+.como-top{margin-bottom:40px}
+.como-kicker{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.3);margin-bottom:12px}
+.como-h{
   font-family:var(--serif);
   font-size:clamp(24px,4vw,48px);font-weight:900;
   letter-spacing:-.045em;line-height:.95;
 }
-.diag-h em{font-style:italic;font-weight:300;color:rgba(255,255,255,.35)}
-.diag-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:start}
-.diag-offer{
-  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;padding:30px;
-  box-shadow:none;
+.como-h em{font-style:italic;font-weight:300;color:rgba(255,255,255,.35)}
+.como-steps{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;overflow:hidden;
+  margin-top:36px;
 }
-.do-badge{
-  font:600 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;
-  color:#D7F5E7;background:rgba(37,211,102,.10);border:1px solid rgba(37,211,102,.22);
-  padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:14px;
+.como-step{
+  background:#111714;padding:28px 24px;
+  position:relative;
 }
-.do-name{font-size:15px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:6px}
-.do-price{
-  font-family:var(--serif);font-size:clamp(36px,5vw,56px);font-weight:900;
-  letter-spacing:-.05em;color:#fff;line-height:1;margin-bottom:3px;
+.cs-num{font:700 11px/1 var(--mono);color:rgba(37,211,102,.7);margin-bottom:14px;letter-spacing:.1em}
+.cs-title{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:8px;line-height:1.25}
+.cs-desc{font-size:13px;color:rgba(255,255,255,.45);font-weight:300;line-height:1.6}
+.como-garantia{
+  margin-top:28px;
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(37,211,102,.07);
+  border:1px solid rgba(37,211,102,.18);
+  border-radius:12px;padding:16px 18px;
 }
-.do-cadence{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:20px;font-weight:300}
-.do-items{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
-.do-item{
-  font-size:13px;color:rgba(255,255,255,.6);font-weight:300;
-  display:flex;gap:8px;align-items:flex-start;line-height:1.4;
-}
-.do-item::before{content:'✓';color:#74B69D;font-weight:700;flex-shrink:0}
-.do-note{
-  font:300 11px/1.5 var(--mono);color:rgba(255,255,255,.25);
-  border-top:1px solid rgba(255,255,255,.08);padding-top:14px;
-  letter-spacing:.02em;
-}
+.cg-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.cg-text{font-size:13px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.6}
+.cg-text strong{font-weight:600;color:rgba(255,255,255,.85)}
 .btn-wa-full{
   display:flex;align-items:center;justify-content:center;gap:9px;
-  background:var(--wa);color:#fff;padding:14px;border-radius:10px;
-  font:600 14px/1 var(--body);margin-top:16px;
+  background:var(--wa);color:#fff;padding:15px;border-radius:10px;
+  font:700 15px/1 var(--body);margin-top:24px;
   box-shadow:0 4px 20px rgba(37,211,102,.25);
   transition:opacity .15s,transform .12s;
+  max-width:420px;
 }
 .btn-wa-full:hover{opacity:.9;transform:translateY(-1px)}
 .btn-wa-full svg{width:17px;height:17px}
-
-/* ─── EXECUTIVE REPORT MOCKUP ──────────────────── */
-.report-wrap{
-  border-radius:16px;overflow:hidden;
-  background:var(--card);
-  border:1px solid rgba(16,21,19,.12);
-  box-shadow:0 22px 56px rgba(0,0,0,.20);
-}
-.report-head{
-  padding:22px 24px;
-  display:flex;justify-content:space-between;gap:20px;align-items:flex-start;
-  border-bottom:1px solid var(--rule);
-  background:linear-gradient(180deg,#FFFFFF,#F4F7F3);
-}
-.report-brand{font-family:var(--serif);font-size:15px;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
-.report-brand b{color:var(--green)}
-.report-title{font-family:var(--serif);font-size:22px;font-weight:900;letter-spacing:-.045em;color:var(--ink);line-height:1;margin-top:10px}
-.report-sub{font-size:12px;color:var(--muted);font-weight:300;margin-top:6px;line-height:1.45}
-.report-total{text-align:right;min-width:145px}
-.report-total-label{font:600 8px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:7px}
-.report-total-value{font-family:var(--serif);font-size:32px;font-weight:900;letter-spacing:-.055em;color:var(--terra);line-height:.9}
-.report-total-value span{font-size:11px;font-weight:400;letter-spacing:0;color:var(--muted);margin-left:2px}
-.report-body{padding:22px 24px 24px;background:var(--surface)}
-.report-section-title{font:700 9px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:12px}
-.report-findings{display:flex;flex-direction:column;border-top:1px solid var(--rule);margin-bottom:20px}
-.rf{
-  display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:start;
-  padding:15px 0;border-bottom:1px solid var(--rule);
-}
-.rf-num{font:700 11px/1 var(--mono);color:var(--green);padding-top:2px}
-.rf-cat{font:700 9px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
-.rf-label{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
-.rf-note{font-size:12px;color:var(--muted);font-weight:300;line-height:1.5}
-.rf-val{font:700 13px/1.25 var(--mono);white-space:nowrap;text-align:right;color:var(--terra);padding-top:2px}
-.rf-val.green{color:var(--green)}
-.report-plan{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden;
-}
-.rp{background:#F3F6F2;padding:14px}
-.rp-step{font:700 10px/1 var(--mono);color:var(--green);margin-bottom:8px}
-.rp-title{font-size:12px;color:var(--ink);font-weight:700;margin-bottom:4px;line-height:1.25}
-.rp-desc{font-size:11px;color:var(--muted);font-weight:300;line-height:1.45}
-.report-footer{
-  padding-top:14px;margin-top:16px;border-top:1px solid var(--rule);
-  display:flex;justify-content:space-between;gap:14px;align-items:center;
-  font:300 8px/1.4 var(--mono);color:var(--muted);letter-spacing:.05em;text-transform:uppercase;
-}
-.report-caption{font:300 10px/1.5 var(--mono);color:rgba(255,255,255,.38);text-align:center;margin-top:12px;letter-spacing:.04em}
-
 
 /* ─── MINI CASES ─────────────────────── */
 .cases{
@@ -414,7 +374,7 @@ h1 em{font-style:italic;font-weight:300;color:var(--muted)}
   font-size:13px;color:var(--ink2);font-weight:300;line-height:1.55;
 }
 
-/* ─── FIT SECTION ─────────────────────── */
+/* ─── FIT SECTION — só positivo ──────── */
 .fit{
   background:var(--paper);
   padding:clamp(42px,6vw,76px) clamp(20px,4vw,56px);
@@ -422,41 +382,16 @@ h1 em{font-style:italic;font-weight:300;color:var(--muted)}
 }
 .fit-inner{max-width:980px;margin:0 auto}
 .fit-title{max-width:720px;margin-bottom:28px}
-.fit-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:14px;
-}
-.fit-col{
+.fit-list{
   background:#fff;border:1px solid var(--rule);
-  border-radius:16px;padding:24px;
+  border-radius:16px;padding:28px 32px;
+  display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;
 }
-.fit-badge{
-  display:inline-block;
-  font:700 9px/1 var(--mono);text-transform:uppercase;
-  letter-spacing:.12em;border-radius:999px;padding:6px 10px;
-  margin-bottom:16px;
+.fit-list li{
+  font-size:14px;line-height:1.5;color:var(--ink2);font-weight:300;
+  display:flex;gap:10px;align-items:flex-start;
 }
-.fit-yes .fit-badge{background:rgba(6,78,59,.08);color:var(--green)}
-.fit-no .fit-badge{background:rgba(180,35,24,.08);color:var(--red)}
-.fit-col ul{list-style:none;display:grid;gap:10px}
-.fit-col li{
-  font-size:13px;line-height:1.5;color:var(--ink2);font-weight:300;
-  display:flex;gap:9px;align-items:flex-start;
-}
-.fit-yes li::before{content:'✓';color:var(--green);font-weight:900;flex-shrink:0}
-.fit-no li::before{content:'×';color:var(--red);font-weight:900;flex-shrink:0}
-
-/* ─── RISK BOX ───────────────────────── */
-.risk-box{
-  background:rgba(37,211,102,.10);
-  border:1px solid rgba(37,211,102,.25);
-  color:rgba(255,255,255,.82);
-  border-radius:12px;
-  padding:12px 13px;
-  font-size:12px;
-  line-height:1.5;
-  font-weight:400;
-  margin:0 0 18px;
-}
+.fit-list li::before{content:'✓';color:var(--green);font-weight:900;flex-shrink:0;margin-top:1px}
 
 /* ─── FAQ ───────────────────────────── */
 .faq{padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px);border-top:1px solid var(--rule)}
@@ -564,17 +499,16 @@ footer{
 @media(max-width:960px){
   .cases-head{grid-template-columns:1fr;align-items:start}
   .cases-grid{grid-template-columns:1fr}
-  .fit-grid{grid-template-columns:1fr}
+  .fit-list{grid-template-columns:1fr}
   .hero{grid-template-columns:1fr}
   .hero-right{
     display:flex;min-height:auto;padding:24px 20px;
     border-top:1px solid var(--rule);
   }
-  .dash-wrap{max-width:100%}
   .dash-wrap{max-width:560px}
   .symptoms{grid-template-columns:1fr}
   .sym-header{border-right:none;border-bottom:1px solid var(--rule)}
-  .diag-layout{grid-template-columns:1fr}
+  .como-steps{grid-template-columns:1fr}
   .final-inner{grid-template-columns:1fr}
   .final-right{align-items:flex-start}
   .final-note{text-align:left}
@@ -586,12 +520,10 @@ footer{
   .exec-main{padding:18px}
   .exec-finding{grid-template-columns:auto 1fr}
   .exec-impact{grid-column:2;text-align:left}
-  .report-head{flex-direction:column}
-  .report-total{text-align:left}
-  .report-plan{grid-template-columns:1fr}
   .hero-stats{flex-wrap:wrap;gap:12px}
   .hstat{border-right:none;margin-right:0;padding-right:0}
   .mid-cta{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-wa-full{max-width:100%}
 }
 </style>
 </head>
@@ -613,7 +545,7 @@ footer{
   <div class="hero-left">
     <div class="hero-kicker">eixo · diagnóstico de perdas para PMEs</div>
     <h1>Você vende bem.<br><em>Por que<br>não sobra?</em></h1>
-    <p class="hero-sub">Responda 5 perguntas e descubra se sua empresa pode estar perdendo dinheiro por <strong>preço errado, margem desconhecida, caixa sem previsão ou processo travado.</strong></p>
+    <p class="hero-sub">A Eixo cruza preço, margem, caixa e processo e te mostra exatamente <strong>onde o dinheiro está escapando — e quanto isso representa por mês.</strong></p>
 
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-n">+9%</div><div class="hstat-l">margem recuperada<br>em 30 dias</div></div>
@@ -621,55 +553,28 @@ footer{
       <div class="hstat"><div class="hstat-n">7 dias</div><div class="hstat-l">do contato ao<br>diagnóstico entregue</div></div>
     </div>
 
-    <!-- FORM -->
+    <!-- FORM SIMPLIFICADO: 2 campos -->
     <div class="hero-form-wrap">
       <div class="form-card">
-        <div class="form-title">Teste rápido de perdas invisíveis</div>
-        <div class="form-sub">A Eixo monta uma leitura inicial e responde pelo WhatsApp. Se não houver sinal claro de perda relevante, falamos isso também.</div>
+        <div class="form-title">Receba uma análise inicial gratuita</div>
+        <div class="form-sub">Manda seu contato. A Eixo avalia seu caso e responde pelo WhatsApp — sem proposta automática.</div>
         <div class="field">
           <label>Nome / empresa</label>
-          <input type="text" id="f-nome" placeholder="Ex.: Marcelo · Loja Centro">
+          <input type="text" id="f-nome" placeholder="Ex.: Marcelo · Distribuidora Centro">
         </div>
         <div class="field">
           <label>WhatsApp</label>
-          <input type="tel" id="f-wa" placeholder="(00) 00000-0000" maxlength="15" inputmode="numeric" autocomplete="tel">
-        </div>
-        <div class="field">
-          <label>Faturamento mensal aproximado</label>
-          <select id="f-fat">
-            <option value="">Selecione</option>
-            <option value="até R$50k">Até R$50 mil</option>
-            <option value="R$50k a R$150k">R$50 mil a R$150 mil</option>
-            <option value="R$150k a R$500k">R$150 mil a R$500 mil</option>
-            <option value="acima de R$500k">Acima de R$500 mil</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Principal problema</label>
-          <select id="f-dor">
-            <option value="">Selecione</option>
-            <option value="vendo bem mas não sobra">Vendo bem, mas não sobra</option>
-            <option value="não sei minha margem real">Não sei minha margem real</option>
-            <option value="caixa imprevisível">Caixa aperta sempre na mesma época</option>
-            <option value="custo real desconhecido">Não sei o custo real da operação</option>
-            <option value="processo depende de mim">Se eu saio, algo trava</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Você sabe sua margem real?</label>
-          <select id="f-margem">
-            <option value="">Selecione</option>
-            <option value="sei com segurança">Sei com segurança</option>
-            <option value="tenho uma noção">Tenho uma noção</option>
-            <option value="não sei">Não sei</option>
-            <option value="acho que alguns itens dão prejuízo">Acho que alguns produtos/serviços dão prejuízo</option>
-          </select>
+          <input type="tel" id="f-wa" placeholder="(64) 99999-9999" maxlength="15" inputmode="numeric" autocomplete="tel">
         </div>
         <button class="btn-submit" data-event="submit_hero_form" onclick="submitForm()">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Receber análise inicial no WhatsApp
+          Quero minha análise inicial
         </button>
-        <p class="form-note">Sem proposta automática. Primeiro avaliamos se existe sinal claro de perda relevante.</p>
+        <div class="form-garantia">
+          <div class="form-garantia-icon">🔒</div>
+          <div class="form-garantia-text"><strong>Sem risco:</strong> você só avança para o diagnóstico pago se, na conversa, identificarmos uma perda provável maior que o investimento.</div>
+        </div>
+        <p class="form-note">resposta em até 2h · sem proposta automática</p>
       </div>
     </div>
   </div>
@@ -737,10 +642,10 @@ footer{
 <!-- MINI CASES -->
 <section class="cases">
   <div class="cases-inner reveal">
-    <div class="cases-kicker">prova de problema real</div>
+    <div class="cases-kicker">resultados reais</div>
     <div class="cases-head">
       <h2 class="cases-title">O tipo de furo que aparece quando os números são cruzados.</h2>
-      <p class="cases-note">Exemplos reais/anônimos de empresas com operação rodando, venda acontecendo e lucro menor do que deveria.</p>
+      <p class="cases-note">Exemplos anônimos de empresas com operação rodando, venda acontecendo e lucro menor do que deveria.</p>
     </div>
     <div class="cases-grid">
       <article class="case-card">
@@ -802,142 +707,54 @@ footer{
   </a>
 </div>
 
-<!-- FIT SECTION -->
+<!-- FIT SECTION — só positivo -->
 <section class="fit">
   <div class="fit-inner reveal">
     <div class="fit-kicker">para quem faz sentido</div>
-    <h2 class="fit-title">Não é para toda empresa. É para quem já sente o problema no caixa.</h2>
-    <div class="fit-grid">
-      <div class="fit-col fit-yes">
-        <div class="fit-badge">Faz sentido se</div>
-        <ul>
-          <li>sua empresa já vende, mas o lucro não acompanha o movimento</li>
-          <li>você decide preço no feeling ou olhando concorrente</li>
-          <li>o caixa aperta em alguns meses e você só percebe tarde</li>
-          <li>você não sabe a margem real por produto, serviço ou operação</li>
-          <li>processos dependem demais do dono para funcionar</li>
-        </ul>
-      </div>
-      <div class="fit-col fit-no">
-        <div class="fit-badge">Não faz sentido se</div>
-        <ul>
-          <li>a empresa ainda não vende de forma recorrente</li>
-          <li>você busca apenas um sistema pronto, sem diagnóstico</li>
-          <li>não quer abrir dados básicos de venda, custo e caixa</li>
-          <li>não pretende ajustar preço, processo ou rotina após os achados</li>
-        </ul>
-      </div>
-    </div>
+    <h2 class="fit-title">Faz sentido se sua empresa já vende — e o lucro não acompanha o movimento.</h2>
+    <ul class="fit-list">
+      <li>sua empresa já vende, mas o lucro não acompanha o movimento</li>
+      <li>você decide preço no feeling ou olhando concorrente</li>
+      <li>o caixa aperta em alguns meses e você só percebe tarde</li>
+      <li>você não sabe a margem real por produto, serviço ou operação</li>
+      <li>processos dependem demais do dono para funcionar</li>
+      <li>você sente que está trabalhando muito e sobrando pouco</li>
+    </ul>
   </div>
 </section>
 
-<!-- DIAGNOSIS OFFER + SLIDE MOCKUP -->
-<section class="diag">
-  <div class="diag-inner">
-    <div class="diag-top reveal">
-      <div class="diag-kicker">o que você compra</div>
-      <h2 class="diag-h">Diagnóstico Inicial de Perdas.<br><em>Não é consultoria de slide.</em></h2>
+<!-- COMO FUNCIONA -->
+<section class="como">
+  <div class="como-inner">
+    <div class="como-top reveal">
+      <div class="como-kicker">como funciona</div>
+      <h2 class="como-h">Três passos.<br><em>Sem compromisso até ver o resultado.</em></h2>
     </div>
-    <div class="diag-layout reveal">
-
-      <!-- offer card -->
-      <div class="diag-offer">
-        <div class="do-badge">Primeiro passo · pagamento único</div>
-        <div class="do-name">Diagnóstico de Perdas Invisíveis</div>
-        <div class="do-price">R$1.490</div>
-        <div class="do-cadence">pagamento único · entrega em 7 dias</div>
-        <div class="risk-box">Você só segue para o diagnóstico pago se, na conversa inicial, identificarmos uma perda provável maior que o investimento.</div>
-        <ul class="do-items">
-          <li>Mapa das perdas em R$: onde o dinheiro escapa e quanto isso representa por mês</li>
-          <li>Raio-X financeiro da operação: preço, custo, caixa, margem e processo juntos</li>
-          <li>Margem real por produto, serviço ou frente de receita</li>
-          <li>Caixa projetado com alertas antes do aperto chegar</li>
-          <li>Plano de ação de 30 dias priorizado por impacto financeiro</li>
-          <li>Reunião de leitura — você entende os achados e decide se quer seguir</li>
-        </ul>
-        <div class="do-note">Se fizer sentido continuar, você pode assinar o acompanhamento mensal a partir de R$1.990/mês. Sem obrigação de prosseguir.</div>
-        <a class="btn-wa-full" data-event="click_offer_cta" href="https://wa.me/5564993273958?text=Olá!%20Quero%20contratar%20o%20Diagnóstico%20Inicial%20de%20Perdas%20da%20Eixo." target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Quero começar pelo diagnóstico
-        </a>
+    <div class="como-steps reveal">
+      <div class="como-step">
+        <div class="cs-num">01 — CONVERSA</div>
+        <div class="cs-title">Você conta como o negócio funciona</div>
+        <div class="cs-desc">15 a 20 minutos pelo WhatsApp. A gente entende o modelo, os números e onde você sente que está perdendo. Sem formulário longo, sem reunião formal.</div>
       </div>
-
-      <!-- executive report mockup -->
-      <div>
-        <div class="report-wrap">
-          <div class="report-head">
-            <div>
-              <div class="report-brand">eixo<b>.</b></div>
-              <div class="report-title">Raio-X Financeiro do Diagnóstico</div>
-              <div class="report-sub">Empresa de Serviços · 18 funcionários · Goiás · Abril 2026</div>
-            </div>
-            <div class="report-total">
-              <div class="report-total-label">perda estimada</div>
-              <div class="report-total-value">R$12.840<span>/mês</span></div>
-            </div>
-          </div>
-
-          <div class="report-body">
-            <div class="report-section-title">achados principais</div>
-            <div class="report-findings">
-              <div class="rf">
-                <div class="rf-num">01</div>
-                <div>
-                  <div class="rf-cat">precificação</div>
-                  <div class="rf-label">3 serviços vendidos abaixo do custo real</div>
-                  <div class="rf-note">O preço cobria o custo direto, mas não absorvia equipe, energia, impostos e retrabalho.</div>
-                </div>
-                <div class="rf-val">−R$8.400/mês</div>
-              </div>
-              <div class="rf">
-                <div class="rf-num">02</div>
-                <div>
-                  <div class="rf-cat">caixa</div>
-                  <div class="rf-label">Ponto de aperto previsto em 17 dias úteis</div>
-                  <div class="rf-note">Sem projeção, a empresa só percebe o problema quando já precisa negociar sob pressão.</div>
-                </div>
-                <div class="rf-val">17 dias</div>
-              </div>
-              <div class="rf">
-                <div class="rf-num">03</div>
-                <div>
-                  <div class="rf-cat">oportunidade</div>
-                  <div class="rf-label">2 serviços com margem alta e baixa frequência comercial</div>
-                  <div class="rf-note">Existe lucro onde a empresa vende pouco — a prioridade é mudar o mix, não apenas vender mais.</div>
-                </div>
-                <div class="rf-val green">+R$6.200/mês</div>
-              </div>
-            </div>
-
-            <div class="report-section-title">plano dos próximos 30 dias</div>
-            <div class="report-plan">
-              <div class="rp">
-                <div class="rp-step">01</div>
-                <div class="rp-title">Reprecificar o que dá prejuízo</div>
-                <div class="rp-desc">corrigir tabela e condições comerciais com base no custo real.</div>
-              </div>
-              <div class="rp">
-                <div class="rp-step">02</div>
-                <div class="rp-title">Antecipar o caixa crítico</div>
-                <div class="rp-desc">prever necessidade e negociar antes do aperto chegar.</div>
-              </div>
-              <div class="rp">
-                <div class="rp-step">03</div>
-                <div class="rp-title">Priorizar margem alta</div>
-                <div class="rp-desc">direcionar esforço comercial para serviços que deixam lucro.</div>
-              </div>
-            </div>
-
-            <div class="report-footer">
-              <div>confidencial · uso exclusivo do cliente</div>
-              <div>eixo.me · diagnóstico de perdas</div>
-            </div>
-          </div>
-        </div>
-        <p class="report-caption">Exemplo de raio-x financeiro entregue ao final do diagnóstico.<br>Dados e valores adaptados à realidade de cada empresa.</p>
+      <div class="como-step">
+        <div class="cs-num">02 — DIAGNÓSTICO</div>
+        <div class="cs-title">A Eixo mapeia as perdas em R$</div>
+        <div class="cs-desc">Se identificarmos perda provável relevante, apresentamos o diagnóstico completo: preço, custo, caixa e processo cruzados. Entrega em 7 dias.</div>
       </div>
-
+      <div class="como-step">
+        <div class="cs-num">03 — DECISÃO</div>
+        <div class="cs-title">Você decide se quer seguir</div>
+        <div class="cs-desc">Depois de ver os achados, você decide se quer implementar o plano de ação. Sem obrigação de continuar. Sem proposta automática antes de ouvir.</div>
+      </div>
     </div>
+    <div class="como-garantia reveal">
+      <div class="cg-icon">🔒</div>
+      <div class="cg-text"><strong>Sem risco financeiro:</strong> você só avança para o diagnóstico pago se, na conversa inicial, identificarmos uma perda provável maior que o valor do investimento. Se não houver sinal claro, falamos isso também — e não cobramos nada.</div>
+    </div>
+    <a class="btn-wa-full" data-event="click_como_cta" href="https://wa.me/5564993273958?text=Olá!%20Quero%20conversar%20sobre%20minha%20empresa%20e%20entender%20onde%20estou%20perdendo%20dinheiro." target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.143a.5.5 0 0 0 .6.713l5.456-1.427A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.372l-.359-.213-3.723.975.993-3.63-.234-.373A9.785 9.785 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+      Começar conversa gratuita
+    </a>
   </div>
 </section>
 
@@ -948,24 +765,24 @@ footer{
     <h2 class="faq-h">Perguntas que todo mundo faz.</h2>
     <div class="faq-list">
       <div class="fi open" id="f1">
-        <div class="fi-q" onclick="fi('f1')">Já tentei sistema antes e não funcionou.<div class="fi-icon">+</div></div>
-        <div class="fi-a"><div class="fi-a-inner">Sistema falha quando é genérico — você adapta o processo ao software em vez do contrário. <strong>Aqui começamos pelo diagnóstico do seu problema real</strong>, depois construímos só o que resolve aquele ponto. Não tem como pagar algo que não prova retorno antes de existir.</div></div>
+        <div class="fi-q" onclick="fi('f1')">Quanto custa o diagnóstico?<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">O diagnóstico completo custa R$1.490, pagamento único, entrega em 7 dias. <strong>Mas você só chega nele se, na conversa inicial gratuita, identificarmos uma perda provável maior que esse valor.</strong> Se não houver sinal claro, falamos isso — e não cobramos nada.</div></div>
       </div>
       <div class="fi" id="f2">
-        <div class="fi-q" onclick="fi('f2')">Não tenho tempo pra implementar mais uma coisa.<div class="fi-icon">+</div></div>
-        <div class="fi-a"><div class="fi-a-inner">A implementação é por nossa conta. Você não monta nada, não treina ninguém de TI, não para a operação. <strong>O sistema entra no ar em 7 dias e a equipe aprende usando</strong> — não antes. O que toma seu tempo hoje é o controle manual que o sistema vai eliminar.</div></div>
+        <div class="fi-q" onclick="fi('f2')">Já tentei sistema antes e não funcionou.<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">Sistema falha quando é genérico — você adapta o processo ao software em vez do contrário. <strong>Aqui começamos pelo diagnóstico do seu problema real</strong>, depois construímos só o que resolve aquele ponto. Não tem como pagar algo que não prova retorno antes de existir.</div></div>
       </div>
       <div class="fi" id="f3">
-        <div class="fi-q" onclick="fi('f3')">Para que tipo de empresa faz sentido?<div class="fi-icon">+</div></div>
-        <div class="fi-a"><div class="fi-a-inner">Faz mais sentido quando a empresa já vende, tem operação acontecendo e sente que o lucro não acompanha o movimento. <strong>Se a perda provável não justificar o investimento, falamos isso antes de qualquer proposta.</strong></div></div>
+        <div class="fi-q" onclick="fi('f3')">Não tenho tempo pra implementar mais uma coisa.<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner">A implementação é por nossa conta. Você não monta nada, não treina ninguém de TI, não para a operação. <strong>O sistema entra no ar em 7 dias e a equipe aprende usando</strong> — não antes. O que toma seu tempo hoje é o controle manual que o sistema vai eliminar.</div></div>
       </div>
       <div class="fi" id="f4">
         <div class="fi-q" onclick="fi('f4')">Isso substitui meu contador?<div class="fi-icon">+</div></div>
         <div class="fi-a"><div class="fi-a-inner">Não substitui — e não é o objetivo. O contador cuida das obrigações fiscais. <strong>A Eixo organiza a gestão entre o operacional e a decisão do dono</strong> — o que o contador não faz e o ERP genérico não mostra de forma simples.</div></div>
       </div>
       <div class="fi" id="f5">
-        <div class="fi-q" onclick="fi('f5')">Posso pagar só o diagnóstico e não continuar?<div class="fi-icon">+</div></div>
-        <div class="fi-a"><div class="fi-a-inner"><strong>Sim.</strong> O diagnóstico é um produto independente. Você recebe o mapa de perdas, o painel e o plano de ação — e decide se quer seguir com acompanhamento mensal. Sem obrigação de prosseguir.</div></div>
+        <div class="fi-q" onclick="fi('f5')">Posso fazer só a conversa inicial e não contratar nada?<div class="fi-icon">+</div></div>
+        <div class="fi-a"><div class="fi-a-inner"><strong>Sim.</strong> A conversa inicial é gratuita e sem compromisso. Se não identificarmos perda relevante, você vai embora sem pagar nada. Se fizer sentido continuar, apresentamos o diagnóstico — e você decide.</div></div>
       </div>
     </div>
   </div>
@@ -1001,7 +818,7 @@ footer{
 <div class="mob-bar">
   <div class="mob-bar-inner">
     <div class="mob-bar-text">
-      <div class="mob-bar-l">análise inicial pelo WhatsApp</div>
+      <div class="mob-bar-l">análise inicial gratuita</div>
       <div class="mob-bar-v">Descobrir minhas perdas</div>
     </div>
     <a class="mob-bar-btn" data-event="click_mobile_bar" href="https://wa.me/5564993273958?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20uma%20análise%20inicial%20das%20perdas." target="_blank">
@@ -1016,25 +833,27 @@ footer{
 function track(eventName) {
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push({ event: eventName })
+  // Google Ads conversion for WA click
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'conversion', { 'send_to': 'AW-18162729754/whatsapp_click' })
+  }
 }
 
-// form → WA
+// form → WA (2 campos)
 function submitForm() {
   const nome = document.getElementById('f-nome').value.trim()
-  const wa  = document.getElementById('f-wa').value.trim()
-  const fat = document.getElementById('f-fat').value
-  const dor = document.getElementById('f-dor').value
+  const wa   = document.getElementById('f-wa').value.trim()
   if (!nome) { document.getElementById('f-nome').focus(); return }
-  if (!wa) { document.getElementById('f-wa').focus(); return }
+  if (!wa)   { document.getElementById('f-wa').focus(); return }
   track('submit_hero_form')
   const msg = encodeURIComponent(
-    `Olá! Quero o diagnóstico inicial de perdas.\n\nNome/empresa: ${nome}\nWhatsApp: ${wa}\nFaturamento: ${fat||'não informado'}\nPrincipal problema: ${dor||'não informado'}\n\nAguardo o contato.`
+    `Olá! Quero entender onde minha empresa está perdendo dinheiro.\n\nNome/empresa: ${nome}\nWhatsApp: ${wa}\n\nAguardo o contato.`
   )
   window.open(`https://wa.me/5564993273958?text=${msg}`, '_blank')
 }
 document.addEventListener('keydown', e => { if (e.key === 'Enter') submitForm() })
 
-
+// track all WA links
 document.querySelectorAll('a[href*="wa.me"]').forEach((a, idx) => {
   if (!a.dataset.event) a.dataset.event = `click_whatsapp_${idx+1}`
   a.addEventListener('click', () => track(a.dataset.event))
@@ -1047,7 +866,6 @@ function sym(id) {
   document.querySelectorAll('.sym').forEach(s => { s.classList.remove('open'); s.querySelector('.sym-body').style.maxHeight = '0' })
   if (!open) { el.classList.add('open'); const b = el.querySelector('.sym-body'); b.style.maxHeight = b.scrollHeight + 'px' }
 }
-// init first open
 ;(()=>{ const s=document.getElementById('s1'); if(s){s.classList.add('open');const b=s.querySelector('.sym-body');b.style.maxHeight=b.scrollHeight+'px'} })()
 
 // faq accordion
