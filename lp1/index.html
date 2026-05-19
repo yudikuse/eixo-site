@@ -855,7 +855,8 @@ async function submitForm() {
   if (LEAD_WEBHOOK !== 'COLE_SUA_URL_AQUI') {
     fetch(LEAD_WEBHOOK, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         nome,
         whatsapp: wa,
